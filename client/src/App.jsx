@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { Routes, Route, useLocation, useMatch } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Routes, Route, useMatch } from 'react-router-dom'
 import Navbar from './components/student/Navbar'
 import Home from './pages/student/Home'
 import CourseDetails from './pages/student/CourseDetails'
@@ -19,6 +19,11 @@ import Loading from './components/student/Loading'
 const App = () => {
 
   const isEducatorRoute = useMatch('/educator/*');
+
+  // ✅ Set the document title for all pages
+  useEffect(() => {
+    document.title = "LMS";
+  }, []);
 
   return (
     <div className="text-default min-h-screen bg-white">
